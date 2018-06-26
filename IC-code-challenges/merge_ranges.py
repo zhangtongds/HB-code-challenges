@@ -21,7 +21,6 @@ def merge_interval(lst):
         result_start, result_end = interval[-1]
         if result_end >= current_start:
             interval[-1] = (min(result_start, current_start), max(result_end, current_end))
-            # print(interval[-1], "+++++")
         else:
             interval.append((current_start, current_end))
             
