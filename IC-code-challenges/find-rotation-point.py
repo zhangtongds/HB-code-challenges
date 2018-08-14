@@ -18,10 +18,26 @@ def find_rotation_point(words):
 # O(logn) method
 
 def find_rotation_point(words):
-    mid_point = int(len(words)/2)
-    while mid_point != 0:
-        if words[0] < words[mid_point]:
-            mid_point = int((len(words) + mid_point)/2)
+    left = 0
+    right = len(words) - 1
+    
+    while left < right-1:
+        middle = int((left + right)/2)
+        if words[left] < words[middle]:
+            left = middle
         else:
-            mid_point = int(mid_point/2) 
-    return mid_point
+            right = middle
+    return 0 if words[left] < words[right] else right
+
+# recursion method
+def find_rotation_point(words):
+    left = 0
+        right = len(words) - 1
+        if right - left == 1:
+            return 0 if words[left] < words[right] else right
+        middle = int((left + right)/2)
+        if words[left] < words[middle]:
+            left = middle
+        else:
+            right = middle
+        return left + find_rotation_point(words[left:right+1])

@@ -16,7 +16,7 @@ def highest_product_of_3(list_of_ints):
     highest = max(list_of_ints[0], list_of_ints[1])
     lowest = min(list_of_ints[0], list_of_ints[1])
 
-    for num in list_of_ints:
+    for num in list_of_ints[2:]:
         highest_product_3 = max(highest_product_3, max_product_2 * num, min_product_2 * num)
         max_product_2 = max(max_product_2, highest * num, lowest * num)
         min_product_2 = min(min_product_2, highest * num, lowest * num)
